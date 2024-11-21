@@ -14,7 +14,7 @@
     />
     <title>Portfolio 2.0</title>
     <script type="module" crossorigin src="/landing-page-2.0/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/landing-page-2.0/assets/index-CpedLfP0.css">
+    <link rel="stylesheet" crossorigin href="/landing-page-2.0/assets/index-DjMZeyuL.css">
   </head>
   <body>
     <header class="header hdr">
@@ -24,7 +24,7 @@
   <input type="checkbox" id="toggle-main" />
   <label for="toggle-main">    
     <svg class="svg-icon" width="14" height="20">
-      <use href="/landing-page-2.0/assets/icons-D_rawvzV.svg#icon-ellipse"></use>
+      <use href="/landing-page-2.0/assets/icons-CHqfwK4x.svg#icon-ellipse"></use>
     </svg>
   </label>
   </label>
@@ -269,38 +269,52 @@
   <div class="container"></div>
 </section>
 
-      <!--collaboration-->
-<section id="collaboration-container">
+      <section class="clb collaboration">
   <div class="container">
-    <h2>LET'S WORK TOGETHER</h2>
-    <p>CONTACT ME TO TRSNSFORM YOUR IDEAS INTO EXCEPTIONAL SOLUTIONS.</p>
-    <address class="contacts-block">
-      <ul class="contacts-list">
-        <li class="contacts-item"><a class="contacts-link" href="tel:+380904567890">
-          <svg class="phone-icon" width="24" height="24">
-          <use href=""></use></svg>+38 090 456 78 90</a></li>
-        <li class="mail-item"><a class="mail-link" href="mailto:lloydjefferson@gmail.com">
-          <svg class="mail-icon" width="24" height="24">
-          <use href=""></use></svg>lloydjefferson@gmail.com</a></li>
-        <li class="location-item"><a class="location-link" href="https://maps.app.goo.gl/AJWrrshWbYXUnQ7L6">
-            <svg class="location-icon" width="24" height="24">
-            <use href=""></use></svg>USA, New York</a></li>
-      </ul>
+    <h2 class="collaboration-title">LET'S <span class="green-collorText">WORK TOGETHER</span></h2>
+    <div class="collab-wall">
+      <div>
+        <p class="collaboration-text">CONTACT ME TO TRANSFORM YOUR IDEAS INTO EXCEPTIONAL SOLUTIONS.</p>
+        <address class="contacts-block">
+          <ul class="contacts-list">
+            <li class="contacts-item">
+              <a class="contacts" href="tel:+380904567890" target="_blank"><svg class="item-icon" width="24"
+                  height="24">
+                  <use href="/landing-page-2.0/assets/icons-CHqfwK4x.svg#icon-phone"></use>
+                </svg>+38 090 456 78 90</a>
+            </li>
+            <li class="contacts-item">
+              <a class="contacts" href="mailto:lloydjefferson@gmail.com" target="_blank"><svg class="item-icon"
+                  width="24" height="24">
+                  <use href="/landing-page-2.0/assets/icons-CHqfwK4x.svg#icon-mail"></use>
+                </svg>lloydjefferson@gmail.com</a>
+            </li>
+            <li class="contacts-item">
+              <a class="contacts" href="https://maps.app.goo.gl/AJWrrshWbYXUnQ7L6" target="_blank"><svg
+                  class="item-icon" width="24" height="24">
+                  <use href="/landing-page-2.0/assets/icons-CHqfwK4x.svg#icon-location"></use>
+                </svg>USA, New York</a>
+            </li>
+          </ul>
+        </address>
+      </div>
       <form class="input-info">
         <div class="email-confirm">
-          <input class="form-input" name="user-email" type="email" placeholder="Your email*" id="try-agen" pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required/>
-          <svg class="done-icon" width="16" height="16">
-            <use href=""></use>
-          </svg>
-          <label class="invalid-email" for="try-agen">Invalid email, try again</label>
+          <div class="input-form">
+            <input class="form-input" name="user-email" type="email" placeholder="Your email*" id="try-agen"
+              pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required />
+            <svg class="done-icon is-hidden" width="16" height="16">
+              <use href="/landing-page-2.0/assets/icons-CHqfwK4x.svg#icon-check-mark"></use>
+            </svg>
+            <p class="invalid-email is-hidden-text" for="try-agen">Invalid email, try again</p>
+          </div>
+          <textarea class="textela-input" id="user-Message" name="user-Message" placeholder="Message"></textarea>
         </div>
-        <textarea class="textela-input" id="user-Message" name="user-Message" placeholder="Message"></textarea>
-        <button class="send-button" type="submit">SEND MESSAGE</button>
+        <button class="send-button jsBtnSubmit" type="submit">SEND MESSAGE</button>
       </form>
-  </address>
+    </div>
   </div>
 </section>
-
     </main>
     <footer id="footer-container">
   <div class="container"></div>
