@@ -14,65 +14,90 @@ for (let a = 0; a <= 3; a++) {
   lenta.push(...tapeSkills);
 }
 
-const bannerItem = document.getElementById('banner__item');
-bannerItem.innerHTML = ``;
 
-function addItems() {
-  lenta.forEach(lang => {
-    bannerItem.innerHTML += `<span class = "banner__text">${lang}</span>
-    <span class = "banner-point"></span>`;
-  });
-  
-  lenta.forEach(lang => {
-    bannerItem.innerHTML += `<span class = "banner__text">${lang}</span>
-    <span class = "banner-point"></span>`;
-  });
+function getWidth(element){
+let style = element.currentStyle || window.getComputedStyle(element),
+    width = element.offsetWidth, // or use style.width
+    margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight),
+    padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight),
+    border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+
+return width + margin - padding + border
 }
 
-let position = 0;
 
-function move() {
-  position -= 2;
-  bannerItem.style.transform = `translateX(${position}px)`;
-  if (Math.abs(position) >= bannerItem.scrollWidth) {
-    position = 0;
-  }
+class InfiniteLine{
+    constructor(rootElem, thread, reverse) {
+        this.rootElem = rootElem;
+        this.thread = thread;
+        this.reverse = reverse;
+        this.position = 0;
+    }
 
-  requestAnimationFrame(move);
+    init() {
+        this.fillThread();
+        this.animate();
+    }
+
+    fillThread() {
+        for (let i = 0; i < 2; i++) {
+            this.thread.forEach(lang => {
+                this.rootElem.insertAdjacentHTML('beforeend',
+                    `<div class='banner__item'><span class = "banner__text">${lang}</span>
+                    <span class = "banner-point"></span></div>`
+                );
+            });
+        }
+    }
+
+    animate() {
+
+        if (this.reverse) {
+            let elem = this.rootElem.children[this.rootElem.children.length-1];
+            this.position += 2;
+            let w = getWidth(elem);
+        
+            if (this.position >= 0) {
+                this.position = -w;
+                this.rootElem.removeChild(elem);
+                this.rootElem.insertBefore(elem,this.rootElem.children[0]);
+            }
+            this.rootElem.style.transform = `translateX(${this.position}px)`;
+        } else { 
+            let elem = this.rootElem.children[0];
+            this.position -= 2;
+            let w = getWidth(elem);
+        
+            if (-this.position >= w) {
+                this.position = 0;
+                this.rootElem.removeChild(elem);
+                this.rootElem.appendChild(elem);
+            }
+            this.rootElem.style.transform = `translateX(${this.position}px)`;
+        }
+
+
+        requestAnimationFrame(()=>this.animate())
+    }
+
+
 }
 
-addItems();
-move();
 
-const bannerItemBottom = document.getElementById('banner__item_bottom');
-bannerItemBottom.innerHTML = ``;
 
-function addItemsBottom() {
-  lenta.forEach(lang => {
-    bannerItemBottom.innerHTML += `<span class="banner__text">${lang}</span>
-        <span class="banner-point"></span>`;
-  });
+let topLine = new InfiniteLine(
+    document.getElementById('banner__item'),
+    lenta,
+    false
+);
 
-  lenta.forEach(lang => {
-    bannerItemBottom.innerHTML += `<span class="banner__text">${lang}</span>
-        <span class="banner-point"></span>`;
-  });
-}
 
-addItemsBottom();
 
-let positionBottom = 0;
-const maxPositionBottom = bannerItemBottom.scrollWidth;
+let bottomLine = new InfiniteLine(
+    document.getElementById('banner__item_bottom'),
+    lenta,
+    true
+);
 
-function moveRight() {
-  positionBottom += 2;
-
-  if (positionBottom >= maxPositionBottom) {
-    positionBottom = -bannerItemBottom.offsetWidth;
-  }
-
-  bannerItemBottom.style.transform = `translateX(${positionBottom}px)`;
-  requestAnimationFrame(moveRight);
-}
-
-moveRight();
+topLine.init();
+bottomLine.init();
