@@ -1,6 +1,5 @@
-> This website is my personal portfolio where I can not only demonstrate my
-> skillset, but also talk about my experiences and past projects that have
-> brought me to where I am now. I think there's a beauty in not just making a
-> portfolio, but projects in general. Each project I make is a step towards my
-> goal of learning more about the constantly expanding field of web development
-> and software engineering.
+🌟✨ LLOYD PAGE ✨🌟
+Technologies Used: HTML, CSS, JS, Vite.js,
+Project Type: Team Collaboration
+
+As the Team Lead, I spearheaded the technical development, steering the team through the project's challenges with precision and focus. This role demanded a strong command of advanced technologies and the expertise to integrate them into a unified, forward-thinking solution.
